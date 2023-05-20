@@ -1,0 +1,32 @@
+import React, { FC, memo } from 'react'
+
+import Icon from '../Icon'
+
+export interface AddImgButtonProps {
+  onClick?: () => void
+  className?: string
+}
+
+export const AddImgButton: FC<AddImgButtonProps> = memo(
+  ({ onClick, className, ...props }: AddImgButtonProps) => {
+    return (
+      <div
+        onClick={onClick}
+        className={
+          'sm:w-[44px] sm:h-[44px] w-[32px] h-[32px] rounded-full bg-white flex items-center justify-center cursor-pointer border border-green-300 ' +
+          className
+        }
+        {...props}>
+        <Icon
+          iconName="Camera"
+          iconSize={24}
+          className="text-green-100 sm:w-6 sm:h-6 w-[18px] h-[18px]"
+        />
+      </div>
+    )
+  }
+)
+
+AddImgButton.displayName = 'AddImgButton'
+
+export default AddImgButton
